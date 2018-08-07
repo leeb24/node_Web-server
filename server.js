@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
-
+//sudo lsof -iTCP -sTCP:LISTEN -P
 const port = process.env.PORT || 3000;//Dyanmic Port
 
 hbs.registerPartials(__dirname+'/views/partials');
@@ -53,6 +53,12 @@ app.get('/about',(req,res)=>{
         pageTitle:'About Page',
         //currentYear:new Date().getFullYear() 
     }); 
+});
+
+app.get('/project',(req,res)=>{
+    res.render('project.hbs',{
+        pageTitle:'Projects Page'
+    })
 });
 
 
