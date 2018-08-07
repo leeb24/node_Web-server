@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+const port = process.env.PORT || 3000;//Dyanmic Port
 
 hbs.registerPartials(__dirname+'/views/partials');
 hbs.registerHelper('getCurrentYear',()=>{
@@ -60,6 +61,6 @@ app.get('/bad',(req,res)=>{
         msg:'BAD ROUTE'
     });
 });
-app.listen(3000,()=>{
-    console.log('Sever is up');
-});       
+app.listen(port,()=>{
+    console.log(`Sever is up on Port:${port}`);
+}); //DYNAMIC PORT      
